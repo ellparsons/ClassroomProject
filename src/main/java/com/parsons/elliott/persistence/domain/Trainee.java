@@ -46,8 +46,4 @@ public class Trainee{
 	public void setTrainee(String trainee) {
 		this.trainee = trainee;
 	}
-	
-	
-	
-	
 }
