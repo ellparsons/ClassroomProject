@@ -13,7 +13,6 @@ import javax.transaction.Transactional;
 import com.parsons.elliott.persistence.domain.Classroom;
 import com.parsons.elliott.persistence.util.JSONUtil;
 
-
 @Transactional(SUPPORTS)
 @Default
 public class ClassroomDBRepository implements ClassroomRepository{
@@ -52,7 +51,7 @@ public class ClassroomDBRepository implements ClassroomRepository{
 	public String deleteClassroom(Long id) {
 		if (findAClassroom(id) != null) {
 			em.remove(findAClassroom(id));
-			return("Account with the id: "+id+" has been deleted");
+			return("Classroom with the id: "+id+" has been deleted");
 		}
 		return("No classroom exists");
 	}

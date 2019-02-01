@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Trainee.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">classroom</a> &gt; <a href="index.source.html" class="el_package">com.parsons.elliott.persistence.domain</a> &gt; <span class="el_source">Trainee.java</span></div><h1>Trainee.java</h1><pre class="source lang-java linenums">package com.parsons.elliott.persistence.domain;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name =&quot;trainee&quot;)
+public class Trainee{
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Long traineeId;
+	
+	private String trainee;
+	
+	@ManyToOne
+	@JoinColumn(name=&quot;trainee&quot;)
+	private Trainee Classroom_trainee;
+		
+<span class="nc" id="L25">	public Trainee() {</span>
+		
+<span class="nc" id="L27">	}</span>
+	
+<span class="nc" id="L29">	public Trainee(Long traineeId, String trainee) {</span>
+<span class="nc" id="L30">		this.traineeId=traineeId;</span>
+<span class="nc" id="L31">		this.trainee=trainee;</span>
+<span class="nc" id="L32">	}</span>
+
+	public Long getTraineeId() {
+<span class="nc" id="L35">		return traineeId;</span>
+	}
+
+	public void setTraineeId(Long traineeId) {
+<span class="nc" id="L39">		this.traineeId = traineeId;</span>
+<span class="nc" id="L40">	}</span>
+
+	public String getTrainee() {
+<span class="nc" id="L43">		return trainee;</span>
+	}
+
+	public void setTrainee(String trainee) {
+<span class="nc" id="L47">		this.trainee = trainee;</span>
+<span class="nc" id="L48">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.2.201409121644</span></div></body></html>

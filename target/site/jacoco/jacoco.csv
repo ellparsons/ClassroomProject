@@ -1,0 +1,10 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+classroom,com.parsons.elliott.persistence.domain,Trainee,26,0,0,0,12,0,6,0,6,0
+classroom,com.parsons.elliott.persistence.domain,Classroom,26,0,0,0,12,0,6,0,6,0
+classroom,com.parsons.elliott.persistence.repository,TraineeDBRepository,82,0,2,0,15,0,7,0,6,0
+classroom,com.parsons.elliott.persistence.repository,ClassroomDBRepository,82,0,2,0,15,0,7,0,6,0
+classroom,com.parsons.elliott.business,BusinessRepository,3,0,0,0,1,0,1,0,1,0
+classroom,com.parsons.elliott.business,BusinessRules,3,0,0,0,1,0,1,0,1,0
+classroom,com.parsons.elliott.persistence.util,JSONUtil,19,0,0,0,5,0,3,0,3,0
+classroom,com.parsons.elliott.REST,JAXActivator,3,0,0,0,1,0,1,0,1,0
+classroom,com.parsons.elliott.REST,AccountEndpoint,3,0,0,0,1,0,1,0,1,0

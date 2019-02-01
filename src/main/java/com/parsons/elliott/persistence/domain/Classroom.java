@@ -1,8 +1,8 @@
 package com.parsons.elliott.persistence.domain;
 
-import java.util.Collection;
+import java.io.Serializable;
+import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,23 +12,23 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "classroom")
-public class Classroom{
+public class Classroom implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long classroomId;
 		
-	private String trainer;
+	private String trainerName;
 		
-	@OneToMany(cascade=CascadeType.ALL, mappedBy="trainee")
-	private Collection trainee;
+	@OneToMany(mappedBy="classroom")
+	Set<Classroom> classroom;
 	
 	public Classroom() {
 			
 	}
 	
-	public Classroom(Long classroomId, String trainer) {
+	public Classroom(Long classroomId, String trainerName) {
 		this.classroomId=classroomId;
-		this.trainer=trainer;
+		this.trainerName=trainerName;
 	}
 
 	public Long getClassroomId() {
@@ -40,10 +40,10 @@ public class Classroom{
 	}
 
 	public String getTrainer() {
-		return trainer;
+		return trainerName;
 	}
 
-	public void setTrainer(String trainer) {
-		this.trainer = trainer;
+	public void setTrainer(String trainerName) {
+		this.trainerName = trainerName;
 	}
 }
