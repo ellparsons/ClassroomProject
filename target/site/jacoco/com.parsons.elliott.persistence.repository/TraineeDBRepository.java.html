@@ -24,7 +24,7 @@ import com.parsons.elliott.persistence.util.JSONUtil;
 	private JSONUtil util;
 	
 	public String getAllTrainee () {
-<span class="nc" id="L27">		Query GetAll = em.createQuery(&quot;SELECT a FROM Account a&quot;);</span>
+<span class="nc" id="L27">		Query GetAll = em.createQuery(&quot;SELECT a FROM Trainee a&quot;);</span>
 <span class="nc" id="L28">		return util.getJSONForObject(GetAll.getResultList());</span>
 	}
 	

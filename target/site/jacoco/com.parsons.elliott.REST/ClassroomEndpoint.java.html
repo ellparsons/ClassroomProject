@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ClassroomEndpoint.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">classroom</a> &gt; <a href="index.source.html" class="el_package">com.parsons.elliott.REST</a> &gt; <span class="el_source">ClassroomEndpoint.java</span></div><h1>ClassroomEndpoint.java</h1><pre class="source lang-java linenums">package com.parsons.elliott.REST;
+
+import javax.inject.Inject;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+
+import com.parsons.elliott.business.BusinessClassroomRules;
+
+
+@Path(&quot;/classroom&quot;)
+<span class="nc" id="L15">public class ClassroomEndpoint {</span>
+
+		@Inject
+		private BusinessClassroomRules service;
+		
+		@Path(&quot;/getAllClassrooms&quot;)
+		@GET
+		@Produces({&quot;application/json&quot;})
+		public String getAllClassrooms() {
+			
+<span class="nc" id="L25">			return service.getAllClassroom();</span>
+		}
+		
+		@Path(&quot;/getAClassroom/{id}&quot;)
+		@GET
+		@Produces({&quot;application/json&quot;})
+		public String findAnClassroom(@PathParam(&quot;id&quot;)Long id) {
+			
+<span class="nc" id="L33">			return service.getAClassroom(id);</span>
+		}
+		
+		@Path(&quot;/createAClassroom&quot;)
+		@POST
+		@Produces({&quot;application/json&quot;})
+		public String createAnClassroom(String classroom) {
+			
+<span class="nc" id="L41">			return service.createAClassroom(classroom);	</span>
+		}
+		
+		@Path(&quot;/updateAClassroom/{id}&quot;)
+		@POST
+		@Produces({&quot;application/json&quot;})
+		public String updateAnClassroom(@PathParam(&quot;id&quot;)Long id, String classroom) {
+			
+<span class="nc" id="L49">			return service.updateClassroom(id, classroom);</span>
+		}
+		
+		@Path(&quot;/deleteAClassroom/{id}&quot;)
+		@DELETE
+		@Produces({&quot;application/json&quot;})
+		public String deleteAnClassroom(@PathParam(&quot;id&quot;)Long id) {
+			
+<span class="nc" id="L57">			return service.deleteClassroom(id);</span>
+		}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.2.201409121644</span></div></body></html>
