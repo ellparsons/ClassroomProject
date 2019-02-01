@@ -1,37 +1,38 @@
 package com.parsons.elliott.persistence.domain;
 
-import java.io.Serializable;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name ="trainee")
-public class Trainee implements Serializable{
+public class Trainee {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long traineeId;
 	
-	private String traineeName;
+	private String traineeName;		
 	
-	@ManyToOne
-	@JoinTable(name="trainee")
-	Trainee trainee;
-		
+	private Long classroomId;
+	
 	public Trainee() {
 		
 	}
 	
-	public Trainee(Long traineeId, String traineeName) {
-		this.traineeId=traineeId;
+	public Trainee(Long classroomId, String traineeName) {
+		this.classroomId=classroomId;
 		this.traineeName=traineeName;
+	}
+
+	public Long getClassroomId() {
+		return classroomId;
+	}
+
+	public void setClassroomId(Long classroomId) {
+		this.classroomId = classroomId;
 	}
 
 	public Long getTraineeId() {

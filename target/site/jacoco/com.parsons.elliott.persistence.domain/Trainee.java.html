@@ -4,47 +4,41 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name =&quot;trainee&quot;)
-public class Trainee{
+public class Trainee {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long traineeId;
 	
-	private String trainee;
+	private String traineeName;		
 	
-	@ManyToOne
-	@JoinColumn(name=&quot;trainee&quot;)
-	private Trainee Classroom_trainee;
+<span class="nc" id="L19">	public Trainee() {</span>
 		
-<span class="nc" id="L25">	public Trainee() {</span>
-		
-<span class="nc" id="L27">	}</span>
+<span class="nc" id="L21">	}</span>
 	
-<span class="nc" id="L29">	public Trainee(Long traineeId, String trainee) {</span>
-<span class="nc" id="L30">		this.traineeId=traineeId;</span>
-<span class="nc" id="L31">		this.trainee=trainee;</span>
-<span class="nc" id="L32">	}</span>
+<span class="nc" id="L23">	public Trainee(Long traineeId, String traineeName) {</span>
+<span class="nc" id="L24">		this.traineeId=traineeId;</span>
+<span class="nc" id="L25">		this.traineeName=traineeName;</span>
+<span class="nc" id="L26">	}</span>
 
 	public Long getTraineeId() {
-<span class="nc" id="L35">		return traineeId;</span>
+<span class="nc" id="L29">		return traineeId;</span>
 	}
 
 	public void setTraineeId(Long traineeId) {
-<span class="nc" id="L39">		this.traineeId = traineeId;</span>
-<span class="nc" id="L40">	}</span>
+<span class="nc" id="L33">		this.traineeId = traineeId;</span>
+<span class="nc" id="L34">	}</span>
 
-	public String getTrainee() {
-<span class="nc" id="L43">		return trainee;</span>
+	public String getTraineeName() {
+<span class="nc" id="L37">		return traineeName;</span>
 	}
 
-	public void setTrainee(String trainee) {
-<span class="nc" id="L47">		this.trainee = trainee;</span>
-<span class="nc" id="L48">	}</span>
+	public void setTrainee(String traineeName) {
+<span class="nc" id="L41">		this.traineeName = traineeName;</span>
+<span class="nc" id="L42">	}</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.2.201409121644</span></div></body></html>

@@ -1,9 +1,11 @@
 package com.parsons.elliott.persistence.domain;
 
-import java.io.Serializable;
-import java.util.Set;
+import java.util.Collection;
+import java.util.LinkedHashSet;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,22 +14,21 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "classroom")
-public class Classroom implements Serializable{
+public class Classroom {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long classroomId;
 		
 	private String trainerName;
-		
-	@OneToMany(mappedBy="classroom")
-	Set<Classroom> classroom;
+	
+	@OneToMany(mappedBy = "trainees", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	Collection<Trainee> trainees = new LinkedHashSet<Trainee>();
 	
 	public Classroom() {
 			
 	}
 	
-	public Classroom(Long classroomId, String trainerName) {
-		this.classroomId=classroomId;
+	public Classroom( String trainerName) {
 		this.trainerName=trainerName;
 	}
 
