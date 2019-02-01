@@ -21,6 +21,7 @@ public class Classroom{
 		
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="trainee")
 	private Collection trainee;
+	
 	public Classroom() {
 			
 	}
