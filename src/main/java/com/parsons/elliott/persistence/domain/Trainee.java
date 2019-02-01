@@ -46,6 +46,6 @@ public class Trainee {
 	public void setTraineeName(String traineeName) {
 		this.traineeName = traineeName;
 	}
-	
+	xx
 	
 }
