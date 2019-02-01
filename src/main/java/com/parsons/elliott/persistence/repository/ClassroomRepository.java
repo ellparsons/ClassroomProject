@@ -5,5 +5,5 @@ public interface ClassroomRepository {
 	String createClassroom(String account);
 	String deleteClassroom(Long id);
 	String updateClassroom(Long id, String account);
-	String findAnClassroom(Long id);	
+	String findAClassroom(Long id);	
 }

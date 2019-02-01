@@ -10,11 +10,13 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 
+import com.parsons.elliott.persistence.domain.Classroom;
 import com.parsons.elliott.persistence.util.JSONUtil;
+
 
 @Transactional(SUPPORTS)
 @Default
-public class ClassroomDBRepository implements Repository{
+public class ClassroomDBRepository implements ClassroomRepository{
 	
 	@PersistenceContext(unitName = "primary")
 	private EntityManager em;
@@ -22,36 +24,36 @@ public class ClassroomDBRepository implements Repository{
 	@Inject
 	private JSONUtil util;
 	
-//	public String getAllTrainers () {
-//		Query GetAll = em.createQuery("SELECT a FROM Account a");
-//		return util.getJSONForObject(GetAll.getResultList());
-//	}
-//	
-//	public String getAllTrainees(Long id) {
-//		Account account = em.find(Account.class, id);
-//		return util.getJSONForObject(account);
-//	}
-//	
-//	@Transactional(REQUIRED)
-//	public String createTrainer(String account) {
-//		Account newAccount = util.getObjectForJSON(account, Account.class);
-//		em.persist(newAccount);
-//		return (util.getJSONForObject(newAccount));  
-//	}
-//	
-//	@Transactional(REQUIRED)       
-//	public String createTrainee(Long id, String account) {
-//		em.remove(findAnAccount(id));
-//		em.persist(createAccount(account));
-//		return (util.getJSONForObject(account));
-//	}
-//	
-//	@Transactional(REQUIRED)
-//	public String deleteAccount(Long id) {
-//		if (findAnAccount(id) != null) {
-//			em.remove(findAnAccount(id));
-//			return("Account with the id: "+id+" has been deleted");
-//		}
-//		return("No account exists");
+	public String getAllClassroom () {
+		Query GetAll = em.createQuery("SELECT a FROM Account a");
+		return util.getJSONForObject(GetAll.getResultList());
+	}
+	
+	public String findAClassroom(Long id) {
+		Classroom classroom = em.find(Classroom.class, id);
+		return util.getJSONForObject(classroom);
+	}
+	
+	@Transactional(REQUIRED)
+	public String createClassroom(String classroom) {
+		Classroom newClassroom = util.getObjectForJSON(classroom, Classroom.class);
+		em.persist(newClassroom);
+		return (util.getJSONForObject(newClassroom));  
+	}
+	
+	@Transactional(REQUIRED)       
+	public String updateClassroom(Long id, String classroom) {
+		em.remove(findAClassroom(id));
+		em.persist(createClassroom(classroom));
+		return (util.getJSONForObject(classroom));
+	}
+	
+	@Transactional(REQUIRED)
+	public String deleteClassroom(Long id) {
+		if (findAClassroom(id) != null) {
+			em.remove(findAClassroom(id));
+			return("Account with the id: "+id+" has been deleted");
+		}
+		return("No classroom exists");
 	}
 }
