@@ -4,31 +4,35 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name ="trainee")
-public class Trainee{
+public class Trainee {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long traineeId;
 	
-	private String trainee;
+	private String traineeName;		
 	
-	@ManyToOne
-	@JoinColumn(name="trainee")
-	private Trainee Classroom_trainee;
-		
+	private Long classroomId;
+	
 	public Trainee() {
 		
 	}
 	
-	public Trainee(Long traineeId, String trainee) {
-		this.traineeId=traineeId;
-		this.trainee=trainee;
+	public Trainee(Long classroomId, String traineeName) {
+		this.classroomId=classroomId;
+		this.traineeName=traineeName;
+	}
+
+	public Long getClassroomId() {
+		return classroomId;
+	}
+
+	public void setClassroomId(Long classroomId) {
+		this.classroomId = classroomId;
 	}
 
 	public Long getTraineeId() {
@@ -39,11 +43,11 @@ public class Trainee{
 		this.traineeId = traineeId;
 	}
 
-	public String getTrainee() {
-		return trainee;
+	public String getTraineeName() {
+		return traineeName;
 	}
 
-	public void setTrainee(String trainee) {
-		this.trainee = trainee;
+	public void setTrainee(String traineeName) {
+		this.traineeName = traineeName;
 	}
 }

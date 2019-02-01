@@ -1,9 +1,11 @@
 package com.parsons.elliott.persistence.domain;
 
 import java.util.Collection;
+import java.util.LinkedHashSet;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,23 +14,22 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "classroom")
-public class Classroom{
+public class Classroom {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long classroomId;
 		
-	private String trainer;
-		
-	@OneToMany(cascade=CascadeType.ALL, mappedBy="trainee")
-	private Collection trainee;
+	private String trainerName;
+	
+	@OneToMany(mappedBy = "trainees", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	Collection<Trainee> trainees = new LinkedHashSet<Trainee>();
 	
 	public Classroom() {
 			
 	}
 	
-	public Classroom(Long classroomId, String trainer) {
-		this.classroomId=classroomId;
-		this.trainer=trainer;
+	public Classroom( String trainerName) {
+		this.trainerName=trainerName;
 	}
 
 	public Long getClassroomId() {
@@ -40,10 +41,10 @@ public class Classroom{
 	}
 
 	public String getTrainer() {
-		return trainer;
+		return trainerName;
 	}
 
-	public void setTrainer(String trainer) {
-		this.trainer = trainer;
+	public void setTrainer(String trainerName) {
+		this.trainerName = trainerName;
 	}
 }
