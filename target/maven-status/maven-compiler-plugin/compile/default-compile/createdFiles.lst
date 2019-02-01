@@ -1,11 +1,14 @@
+com\parsons\elliott\business\BusinessClassroomRules.class
 com\parsons\elliott\persistence\domain\Trainee.class
 com\parsons\elliott\persistence\repository\TraineeDBRepository.class
+com\parsons\elliott\REST\TraineeEndpoint.class
 com\parsons\elliott\REST\JAXActivator.class
 com\parsons\elliott\persistence\util\JSONUtil.class
-com\parsons\elliott\REST\AccountEndpoint.class
 com\parsons\elliott\persistence\repository\ClassroomRepository.class
+com\parsons\elliott\business\BusinessClassroomRepository.class
 com\parsons\elliott\persistence\repository\TraineeRepository.class
-com\parsons\elliott\business\BusinessRules.class
-com\parsons\elliott\business\BusinessRepository.class
+com\parsons\elliott\REST\ClassroomEndpoint.class
+com\parsons\elliott\business\BusinessTraineeRules.class
 com\parsons\elliott\persistence\domain\Classroom.class
+com\parsons\elliott\business\BusinessTraineeRepository.class
 com\parsons\elliott\persistence\repository\ClassroomDBRepository.class

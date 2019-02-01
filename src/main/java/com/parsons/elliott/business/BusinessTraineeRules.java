@@ -2,48 +2,31 @@ package com.parsons.elliott.business;
 
 import javax.inject.Inject;
 
-import com.parsons.elliott.persistence.domain.Trainee;
-import com.parsons.elliott.persistence.util.JSONUtil;
+import com.parsons.elliott.persistence.repository.TraineeRepository;
 
 public class BusinessTraineeRules {
 	
 	@Inject
-	private BusinessTraineeRepository accRepo;
+	private TraineeRepository classRepo;
 	
-	@Inject
-	private JSONUtil util;
-	
-	public String getAllTrainees() {
-	
-		return accRepo.getAllTrainee();		
-	}
-
-	public String getAnTrainee(Long id) {
-		
-		return accRepo.findATrainee(id);
+	public String getAllTrainee() {
+		return classRepo.getAllTrainee();
 	}
 	
-	public String createTrainee(String trainee) {
-		
-		Trainee anTrainee;
-		anTrainee = util.getObjectForJSON(trainee, Trainee.class);
-		if(anTrainee.getTraineeId()==9) {
-			return ("This trainee is blocked");
-		}
-		else {
-			accRepo.createTrainee(trainee);
-			return("Trainee created");
-		}
+	public String getATrainee(Long id) {
+		return classRepo.findATrainee(id);
 	}
-
+	
+	public String createATrainee(String trainee) {
+		return classRepo.createTrainee(trainee);
+	}
+	
 	public String deleteTrainee(Long id) {
-		
-		return accRepo.deleteTrainee(id);
+		return classRepo.deleteTrainee(id);
 	}
 
-	public String updateTrainee(Long id, String trainee) {
-
-		return accRepo.updateTrainee(id, trainee);
+	public String updateTrainee(Long id, String account) {
+		return classRepo.updateTrainee(id, account);
 	}
 	
 }

@@ -16,13 +16,14 @@ import javax.persistence.Table;
 @Table(name = "classroom")
 public class Classroom {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long classroomId;
 		
 	private String trainerName;
 	
-	@OneToMany(mappedBy = "trainees", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany (mappedBy = "classroomId", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	Collection<Trainee> trainees = new LinkedHashSet<Trainee>();
+
 	
 	public Classroom() {
 			
@@ -31,20 +32,41 @@ public class Classroom {
 	public Classroom( String trainerName) {
 		this.trainerName=trainerName;
 	}
+	
 
 	public Long getClassroomId() {
 		return classroomId;
 	}
 
+
+
 	public void setClassroomId(Long classroomId) {
 		this.classroomId = classroomId;
 	}
 
-	public String getTrainer() {
+
+
+	public String getTrainerName() {
 		return trainerName;
 	}
 
-	public void setTrainer(String trainerName) {
+
+
+	public void setTrainerName(String trainerName) {
 		this.trainerName = trainerName;
 	}
+
+
+
+	public Collection<Trainee> getTrainees() {
+		return trainees;
+	}
+
+
+
+	public void setTrainees(Collection<Trainee> trainees) {
+		this.trainees = trainees;
+	}
+
+	
 }
